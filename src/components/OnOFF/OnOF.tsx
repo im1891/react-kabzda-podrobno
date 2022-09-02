@@ -2,10 +2,9 @@ import React, {useState} from 'react';
 import '../../App.css';
 
 
+export const OnOf: React.FC = () => {
 
-export const OnOf: React.FC =() => {
-
-const[onOff, setOnOff]=useState(false);
+    const [onOff, setOnOff] = useState(false);
 
 
     const onStyle = {
@@ -14,7 +13,8 @@ const[onOff, setOnOff]=useState(false);
         height: '20px',
         border: '1px solid black',
         padding: '2px',
-        backgroundColor:  onOff ? 'green' : 'white',
+        backgroundColor: onOff ? 'green' : 'white',
+        cursor: 'pointer',
 
     }
     const offStyle = {
@@ -25,6 +25,8 @@ const[onOff, setOnOff]=useState(false);
         marginLeft: '2px',
         padding: '2px',
         backgroundColor: onOff ? 'white' : 'red',
+        cursor: 'pointer',
+
     }
 
     const indicatorStyle = {
@@ -35,13 +37,13 @@ const[onOff, setOnOff]=useState(false);
         border: '1px solid black',
         marginLeft: '5px',
         padding: '2px',
-        backgroundColor:  onOff ? 'green' : 'red',
+        backgroundColor: onOff ? 'green' : 'red',
 
     }
 
-const onClickButtonhandler = (onOff: boolean) => {
+    const onClickButtonhandler = (onOff: boolean) => {
         setOnOff(!onOff)
-}
+    }
     return (
         <div className='onOfItems'>
 

@@ -34,8 +34,9 @@ type StarPropsType = {
 
 function Star(props: StarPropsType) {
     return props.selected ?
-        <span style={{color: 'gold', fontWeight: 'bold'}} onClick={() => props.setValue(props.rating)}>star </span> :
-        <span onClick={() => props.setValue(props.rating)}>star</span>
+        <span style={{color: 'gold', fontWeight: 'bold', cursor: "pointer"}}
+              onClick={() => props.setValue(props.rating)}>star </span> :
+        <span style={{cursor: "pointer"}} onClick={() => props.setValue(props.rating)}>star</span>
 
 
 }
