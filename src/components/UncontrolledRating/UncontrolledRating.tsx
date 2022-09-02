@@ -7,11 +7,11 @@ export function UncontrolledRating() {
 
     return (
         <div>
-            <Star selected={value > 0} value={1} setValue={setValue}/>
-            <Star selected={value > 1} value={2} setValue={setValue}/>
-            <Star selected={value > 2} value={3} setValue={setValue}/>
-            <Star selected={value > 3} value={4} setValue={setValue}/>
-            <Star selected={value > 4} value={5} setValue={setValue}/>
+            <Star selected={value > 0} rating={1} setValue={setValue}/>
+            <Star selected={value > 1} rating={2} setValue={setValue}/>
+            <Star selected={value > 2} rating={3} setValue={setValue}/>
+            <Star selected={value > 3} rating={4} setValue={setValue}/>
+            <Star selected={value > 4} rating={5} setValue={setValue}/>
             {/*    <div>
                 <button onClick={() => setValue(0)}>0</button>
                 <button onClick={() => setValue(1)}>1</button>
@@ -28,14 +28,14 @@ export function UncontrolledRating() {
 
 type StarPropsType = {
     selected: boolean
-    value: number
+    rating: number
     setValue: (value: number) => void
 }
 
 function Star(props: StarPropsType) {
     return props.selected ?
-        <span style={{color: 'gold', fontWeight: 'bold'}} onClick={() => props.setValue(props.value)}>star </span> :
-        <span onClick={() => props.setValue(props.value)}>star</span>
+        <span style={{color: 'gold', fontWeight: 'bold'}} onClick={() => props.setValue(props.rating)}>star </span> :
+        <span onClick={() => props.setValue(props.rating)}>star</span>
 
 
 }
