@@ -2,14 +2,16 @@ import React from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
-import OnOf from "./components/OnOFF/OnOF";
+import {OnOf} from "./components/OnOFF/OnOF";
+import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 
 
 function App() {
     return (
         <div>
 
-            <Accordion title={'Меню'} collapsed={true}/>
+            {/* <Accordion title={'Меню'} collapsed={true}/>
 
             <Accordion title={'Список'} collapsed={false}/>
 
@@ -18,12 +20,13 @@ function App() {
             <Rating value={2}/>
             <Rating value={3}/>
             <Rating value={4}/>
-            <Rating value={5}/>
-            <OnOf on={true}/>
-            <OnOf on={true}/>
-            <OnOf on={true}/>
-            <OnOf on={true}/>
-            <OnOf on={false}/>
+            <Rating value={5}/>*/}
+
+            <UncontrolledAccordion title={'--Menu--'}/>
+            <UncontrolledRating />
+
+            <OnOf/>
+            <OnOf/>
 
 
         </div>
