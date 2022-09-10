@@ -3,15 +3,15 @@ import React, {useState} from "react";
 
 export function UncontrolledRating() {
 
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState<RatingValueType>(0)
 
     return (
         <div>
-            <Star selected={value > 0} rating={1} setValue={setValue}/>
-            <Star selected={value > 1} rating={2} setValue={setValue}/>
-            <Star selected={value > 2} rating={3} setValue={setValue}/>
-            <Star selected={value > 3} rating={4} setValue={setValue}/>
-            <Star selected={value > 4} rating={5} setValue={setValue}/>
+            <Star selected={value > 0} setValue={() => setValue(1)}/>
+            <Star selected={value > 1} setValue={() => setValue(2)}/>
+            <Star selected={value > 2} setValue={() => setValue(3)}/>
+            <Star selected={value > 3} setValue={() => setValue(4)}/>
+            <Star selected={value > 4} setValue={() => setValue(5)}/>
             {/*    <div>
                 <button onClick={() => setValue(0)}>0</button>
                 <button onClick={() => setValue(1)}>1</button>
@@ -26,17 +26,16 @@ export function UncontrolledRating() {
     )
 }
 
+export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
+
 type StarPropsType = {
     selected: boolean
-    rating: number
-    setValue: (value: number) => void
+    setValue: () => void
 }
 
 function Star(props: StarPropsType) {
-    return props.selected ?
-        <span style={{color: 'gold', fontWeight: 'bold', cursor: "pointer"}}
-              onClick={() => props.setValue(props.rating)}>star </span> :
-        <span style={{cursor: "pointer"}} onClick={() => props.setValue(props.rating)}>star</span>
+    return <span style={props.selected ? {color: 'gold', fontWeight: 'bold', cursor: "pointer"} : {cursor: "pointer"}}
+                 onClick={props.setValue}> star</span>
 
 
 }

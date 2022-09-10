@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import '../../App.css';
 
+type PropsType = {
+    onOff: boolean
+    setOnOff: (value: boolean) => void
+}
+export const OnOf: React.FC<PropsType> = (props) => {
 
-export const OnOf: React.FC = () => {
-
-    const [onOff, setOnOff] = useState(false);
-
+    const {onOff, setOnOff} = props
 
     const onStyle = {
         display: 'inline-block',
@@ -41,19 +43,15 @@ export const OnOf: React.FC = () => {
 
     }
 
-    const onClickButtonhandler = (onOff: boolean) => {
-        setOnOff(!onOff)
-    }
+
     return (
         <div className='onOfItems'>
 
 
-            <div style={onStyle} onClick={() => onClickButtonhandler(onOff)}>On</div>
-            <div style={offStyle} onClick={() => onClickButtonhandler(onOff)}>Off</div>
+            <div style={onStyle} onClick={() => setOnOff(true)}>On</div>
+            <div style={offStyle} onClick={() => setOnOff(false)}>Off</div>
             <div style={indicatorStyle}></div>
-            {/*
-            <div className={`square ${on && 'on'}`}></div>
-            <div className={`circle ${on && 'on'}`}>{on ? 'ON' : 'OFF'}</div>*/}
+
         </div>
     )
 }

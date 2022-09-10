@@ -1,16 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import {OnOf} from "./components/OnOFF/OnOF";
+import {UncontrolledOnOf} from "./components/uncontrolledOnOf/UncontrolledOnOf";
+import {RatingValueType, UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import {Rating} from "./components/Rating/Rating";
+import Accordion from "./components/Accordion/Accordion";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
-import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 
 
 function App() {
+    const [rating, setRating] = useState<RatingValueType>(2)
+    const [collapsed, setCollapsed] = useState(true)
+    const [onOff, setOnOff] = useState(false);
+
     return (
         <div>
             <UncontrolledAccordion title={'--Menu--'}/>
             <UncontrolledRating/>
-            <OnOf/>
+            <Rating value={rating} onClick={setRating}/>
+            <Accordion title={'---Menu2---'} collapsed={collapsed} setCollapsed={setCollapsed}/>
+            <UncontrolledOnOf onChange={setOnOff}/> {onOff.toString()}
+            {/*<OnOf onOff={onOff} setOnOff={setOnOff}/>*/}
         </div>
     )
 
