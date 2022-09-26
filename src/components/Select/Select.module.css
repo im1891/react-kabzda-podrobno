@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.selectWrapper {
+    margin-left: 10px;
+}
+
+.select {
+    display: flex;
+    width: 100px;
+
+}
+
+.toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid #565252;
+    color: white;
+    width: 20px;
+    border-left: none;
+    background-color: rgba(208, 204, 204, .2);
+    border-radius: 0 5px 0 0;
+}
+
+.toggle img {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    transform: rotate(90deg);
+    transition: ease-out 250ms;
+    cursor: pointer;
+
+}
+
+.toggle .toggleActive {
+    transform: rotate(270deg);
+    transition: ease-out 250ms;
+    cursor: pointer;
+}
+
+.selectField {
+    border-bottom: 3px solid #565252;
+    width: 70px;
+    background-color: rgba(208, 204, 204, .2);
+    border-radius: 5px 0 0 0;
+    cursor: pointer;
+    color: #565252;
+}
+
+.openSelect {
+    background-color: rgba(208, 204, 204, .8);
+    transition: ease-out 300ms;
+}
+
+.selectBody {
+    display: flex;
+    width: 90px;
+    flex-direction: column;
+    transition: ease-out 5000ms;
+    background-color: #565252;
+    color: white;
+    border-radius: 0 0 5px 5px;
+
+}
+
+.selectItem {
+    padding: 5px;
+}
+
+.selectItem:hover {
+    background-color: #a49e9e;
+    cursor: pointer;
+}
