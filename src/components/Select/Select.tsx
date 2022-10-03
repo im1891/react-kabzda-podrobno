@@ -12,7 +12,7 @@ type SelectPropsTypes = {
   items: ItemType[];
 };
 
-export const Select: React.FC<SelectPropsTypes> = (props) => {
+const MainSelect: React.FC<SelectPropsTypes> = (props) => {
   const { value, onChange, items } = props;
 
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -102,3 +102,5 @@ export const Select: React.FC<SelectPropsTypes> = (props) => {
     </div>
   );
 };
+
+export const Select = React.memo(MainSelect);

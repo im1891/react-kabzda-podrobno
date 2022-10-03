@@ -1,5 +1,5 @@
-import UncontrolledAccordion from "./UncontrolledAccordion";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { UncontrolledAccordion } from "./UncontrolledAccordion";
 
 export default {
   title: "react-kabzda-podrobno/UncontrolledAccordion",

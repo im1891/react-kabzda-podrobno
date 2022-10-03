@@ -8,7 +8,7 @@ export type OnOffPropsType = {
   onOff: boolean;
   setOnOff: (value: boolean) => void;
 };
-export const OnOff: React.FC<OnOffPropsType> = (props) => {
+const MainOnOff: React.FC<OnOffPropsType> = (props) => {
   const { onOff, setOnOff } = props;
 
   const onStyle = {
@@ -54,3 +54,5 @@ export const OnOff: React.FC<OnOffPropsType> = (props) => {
     </div>
   );
 };
+
+export const OnOff = React.memo(MainOnOff);

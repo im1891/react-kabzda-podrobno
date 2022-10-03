@@ -12,7 +12,7 @@ type SelectPropsTypes = {
   items: ItemType[];
 };
 
-export const Select02: React.FC<SelectPropsTypes> = (props) => {
+export const MainSelect02: React.FC<SelectPropsTypes> = (props) => {
   const { value, onChange, items } = props;
 
   useEffect(() => {
@@ -80,3 +80,5 @@ export const Select02: React.FC<SelectPropsTypes> = (props) => {
     </div>
   );
 };
+
+export const Select02 = React.memo(MainSelect02);

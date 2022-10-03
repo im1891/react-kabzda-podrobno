@@ -1,7 +1,7 @@
-import Accordion from "./Accordion";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { useState } from "react";
+import { Accordion } from "./Accordion";
 
 export default {
   title: "react-kabzda-podrobno/Accordion",

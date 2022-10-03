@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./App.css";
 import { RatingValueType } from "./components/UncontrolledRating/UncontrolledRating";
 import { Select } from "./components/Select/Select";
-import { Select02 } from "./components/Select/Select02";
 
 function App() {
   const [rating, setRating] = useState<RatingValueType>(2);
@@ -12,12 +11,22 @@ function App() {
 
   return (
     <div>
-      {/*<UncontrolledAccordion title={'--Menu--'}/>*/}
-      {/*<UncontrolledRating/>*/}
+      {/*<UncontrolledAccordion title={"--Menu--"} />*/}
+      {/*<UncontrolledRating />*/}
       {/*<Rating value={rating} onClick={setRating} />*/}
-      {/*<Accordion title={'---Menu2---'} collapsed={collapsed} setCollapsed={setCollapsed}/>*/}
-      {/*<UncontrolledOnOff onChange={setOnOff}/> {onOff.toString()}*/}
-      {/*<OnOff onOff={onOff} setOnOff={setOnOff}/>*/}
+      {/* <Accordion
+        title={"---Menu2---"}
+        collapsed={collapsed}
+        setCollapsed={setCollapsed}
+        items={[
+          { title: "HTML", value: 1 },
+          { title: "CSS", value: 1 },
+          { title: "JS", value: 1 },
+        ]}
+        onClick={setCollapsed}
+      />*/}
+      {/*<UncontrolledOnOff onChange={setOnOff} /> {onOff.toString()}*/}
+      {/*<OnOff onOff={onOff} setOnOff={setOnOff} />*/}
       <Select
         value={selectValue}
         onChange={setSelectValue}
@@ -31,8 +40,7 @@ function App() {
           },
         ]}
       />
-
-      <Select02
+      {/* <Select02
         value={selectValue}
         onChange={setSelectValue}
         items={[
@@ -44,7 +52,7 @@ function App() {
             value: 4,
           },
         ]}
-      />
+      />*/}
     </div>
   );
 }

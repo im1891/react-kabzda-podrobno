@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export function UncontrolledRating() {
+function MainUncontrolledRating() {
   const [value, setValue] = useState<RatingValueType>(0);
 
   return (
@@ -45,3 +45,5 @@ function Star(props: StarPropsType) {
     </span>
   );
 }
+
+export const UncontrolledRating = React.memo(MainUncontrolledRating);

@@ -30,7 +30,7 @@ export type AccordionPropsType = {
 
 }*/
 
-function Accordion(props: AccordionPropsType) {
+function MainAccordion(props: AccordionPropsType) {
   return (
     <div>
       <AccordionTitle
@@ -44,7 +44,7 @@ function Accordion(props: AccordionPropsType) {
   );
 }
 
-export default Accordion;
+/*export const Accordion = React.memo(MainAccordion);*/
 
 type AccordionTitlePropsType = {
   title: string;
@@ -59,6 +59,7 @@ type AccordionBodyPropsType = {
   items: ItemType[];
   onClick: (value: any) => void;
 };
+
 function AccordionBody(props: AccordionBodyPropsType) {
   return (
     <ul>
@@ -70,3 +71,5 @@ function AccordionBody(props: AccordionBodyPropsType) {
     </ul>
   );
 }
+
+export const Accordion = React.memo(MainAccordion);
