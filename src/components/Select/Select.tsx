@@ -13,18 +13,62 @@ type SelectPropsTypes = {
 };
 
 export const Select: React.FC<SelectPropsTypes> = (props) => {
+  const { value, onChange, items } = props;
+
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const [hoveredItemValue, setHoveredItemValue] = useState(value);
+
   const changeCollapsed = () => {
     setIsCollapsed((prevState) => !prevState);
   };
+
+  const changeValue = (value: number) => {
+    onChange(value);
+    changeCollapsed();
+  };
+
+  const onHoveredItem = (value: number) => {
+    setHoveredItemValue(value);
+  };
+
+  const onKeyUpHandler = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter") {
+      changeCollapsed();
+    }
+
+    if (e.key === "Escape") {
+      setIsCollapsed(true);
+    }
+
+    if (e.key === "ArrowDown") {
+      if (value + 1 <= items.length) {
+        onChange(value + 1);
+        setHoveredItemValue(value + 1);
+      }
+    }
+
+    if (e.key === "ArrowUp") {
+      if (value - 1 > 0) {
+        onChange(value - 1);
+        setHoveredItemValue(value - 1);
+      }
+    }
+  };
+
+  let title = items.find((el) => el.value === value)?.title;
   return (
-    <div className={s.selectWrapper}>
+    <div
+      className={s.selectWrapper}
+      onKeyUp={onKeyUpHandler}
+      onBlur={() => setIsCollapsed(true)}
+      tabIndex={0}
+    >
       <div className={s.select}>
         <div
           className={`${s.selectField}  ${!isCollapsed ? s.openSelect : ""}`}
           onClick={changeCollapsed}
         >
-          {props.value}
+          {title}
         </div>
         <div
           className={`${s.toggle} ${!isCollapsed ? s.openSelect : ""}`}
@@ -39,22 +83,15 @@ export const Select: React.FC<SelectPropsTypes> = (props) => {
       </div>
       {!isCollapsed && (
         <div className={s.selectBody}>
-          {props.items.map((el, index) => {
-            const changeValue = (title: any) => {
-              props.onChange(title);
-              changeCollapsed();
-            };
-
-            const changeValueMouseOver = (title: any) => {
-              props.onChange(title);
-            };
-
+          {items.map((el, index) => {
             return (
               <div
-                className={s.selectItem}
+                className={`${s.selectItem} ${
+                  hoveredItemValue === el.value ? s.hovered : ""
+                }`}
                 key={index}
-                onClick={() => changeValue(el.title)}
-                onMouseOver={() => changeValueMouseOver(el.title)}
+                onClick={() => changeValue(el.value)}
+                onMouseOver={() => onHoveredItem(el.value)}
               >
                 {el.title}
               </div>
