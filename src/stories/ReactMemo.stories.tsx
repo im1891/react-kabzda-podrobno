@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { log } from "util";
 
 export default {
   title: "ReactMemo demo",

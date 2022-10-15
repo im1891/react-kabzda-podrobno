@@ -1,6 +1,5 @@
 import { Select02 } from "./Select02";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 import { useState } from "react";
 
 export default {
