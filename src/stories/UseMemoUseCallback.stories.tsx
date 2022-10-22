@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, {useCallback, useMemo, useState} from "react";
 
 export default {
   title: "useMemo",
@@ -42,8 +42,8 @@ const UsersSecret = (props: { users: Array<string> }) => {
   console.log("render UsersSecret");
   return (
     <div>
-      {props.users.map((el, i) => (
-        <div key={i}>{el}</div>
+      {props.users.map((user, i) => (
+        <div key={i}>{user}</div>
       ))}
     </div>
   );
@@ -74,3 +74,40 @@ export const HelpsToReactMemo = () => {
     </>
   );
 };
+
+export const likeUseCallback = () => {
+  const [counter, setCounter] = useState(0);
+  const [books, setBooks] = useState(["React", "JS", "Redux"]);
+  console.log("render likeUseCallback");
+
+  const addBook = () => {
+    setBooks([...books, "Masha"]);
+  };
+
+  const memoizedAddBook= useMemo(() => {
+    return addBook
+  }, [books])
+
+  const memoizedAddBook2= useCallback(addBook, [books])
+  return (
+      <>
+        <button onClick={() => setCounter((prevState) => prevState + 1)}>
+          +
+        </button>
+
+        {counter}
+        <Books  addBook={memoizedAddBook2} />
+      </>
+  );
+};
+
+const BooksSecret = (props: { addBook: () => void }) => {
+  console.log("render Books");
+  return (
+      <div>
+        <button onClick={props.addBook}>add book</button>
+      </div>
+  );
+};
+
+const Books = React.memo(BooksSecret);
