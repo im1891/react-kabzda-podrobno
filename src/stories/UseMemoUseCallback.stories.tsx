@@ -75,7 +75,7 @@ export const HelpsToReactMemo = () => {
   );
 };
 
-export const likeUseCallback = () => {
+export const LikeUseCallback = () => {
   const [counter, setCounter] = useState(0);
   const [books, setBooks] = useState(["React", "JS", "Redux"]);
   console.log("render likeUseCallback");
